@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    /** Writes textToSave to the file denoted by fileName. **/
     private void save(String fileName, String textToSave) {
         try {
             OutputStreamWriter out =
@@ -62,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean fileExists(String fname) {
-        File file = getBaseContext().getFileStreamPath(fname);
+    /** Checks if the file denoted by fileName exists. **/
+    private boolean fileExists(String fileName) {
+        File file = getBaseContext().getFileStreamPath(fileName);
         return file.exists();
     }
 
+    /** Opens the file denoted by fileName and returns the contents of the file. **/
     private String open(String fileName) {
         String content = "";
         if (fileExists(fileName)) {
